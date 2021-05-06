@@ -5,7 +5,7 @@ using UploadDoc.Domain.Entities;
 
 namespace UploadDoc.Domain.Interfaces
 {
-    public interface IPessoaRepository
+    public interface IPessoaRepository : IRepository<Pessoa>
     {
         IEnumerable<Pessoa> GetAll();
     }

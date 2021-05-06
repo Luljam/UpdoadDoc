@@ -32,5 +32,19 @@ namespace UploadDoc.Application.Services
 
             return _pessoaViewModels;
         }
+
+        public bool Post(PessoaViewModel pessoaViewModel)
+        {
+            Pessoa _pessoa = new Pessoa
+            {
+                Id = pessoaViewModel.Id,
+                Prontuario = pessoaViewModel.Prontuario,
+                Nome = pessoaViewModel.Nome,
+            };
+
+            this.pessoaRepository.Create(_pessoa);
+
+            return true;
+        }
     }
 }

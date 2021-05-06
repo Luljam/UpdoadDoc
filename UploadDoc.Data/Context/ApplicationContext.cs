@@ -18,6 +18,10 @@ namespace UploadDoc.Data.Context
         {
             modelBuilder.ApplyConfiguration(new PessoaMap());
 
+            // Toda vez que passar pelo modelo  irá aplicar as configurações default
+            // na primeira vez tem que aplicar Add-Migration "Global Configurations"
+            modelBuilder.ApplyGlobalConfigurations();
+
             // Toda Vez que rodar uma migration insere dados padroes no banco conforme configurado no SeedData
             modelBuilder.SeedData();
 

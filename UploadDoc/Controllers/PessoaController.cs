@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using UploadDoc.Application.Interfaces;
+using UploadDoc.Application.ViewModels;
 
 namespace UploadDoc.Controllers
 {
@@ -23,6 +24,12 @@ namespace UploadDoc.Controllers
         public IActionResult Get()
         { 
             return Ok(this.pessoaService.Get());
+        }
+
+        [HttpPost]
+        public IActionResult Post(PessoaViewModel pessoaViewModel)
+        {
+            return Ok(this.pessoaService.Post(pessoaViewModel));
         }
 
     }
