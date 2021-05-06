@@ -12,7 +12,7 @@ namespace UploadDoc.Data.Extensions
         {
             builder.Entity<Pessoa>()
                 .HasData(
-                    new Pessoa { PessoaId =1, Prontuario = 123456, Nome = "Administrador Teste"  }
+                    new Pessoa { Id =1, Prontuario = 123456, Nome = "Administrador Teste" , DateCreaded = new DateTime(2021,05,05), IsActive = true }
                 );
             return builder;
         }

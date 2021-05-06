@@ -10,6 +10,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\UploadDoc.Application\UploadDoc.Application.csproj" />
+    <ProjectReference Include="..\UploadDoc.Data\UploadDoc.Data.csproj" />
+    <ProjectReference Include="..\UploadDoc.Domain\UploadDoc.Domain.csproj" />
   </ItemGroup>
 
 </Project>

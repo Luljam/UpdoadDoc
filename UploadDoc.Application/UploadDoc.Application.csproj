@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModels\" />
+    <ProjectReference Include="..\UploadDoc.Domain\UploadDoc.Domain.csproj" />
   </ItemGroup>
 
 </Project>

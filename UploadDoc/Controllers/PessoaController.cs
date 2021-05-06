@@ -21,9 +21,8 @@ namespace UploadDoc.Controllers
 
         [HttpGet]
         public IActionResult Get()
-        {
-            this.pessoaService.Teste();
-            return Ok("Ok");
+        { 
+            return Ok(this.pessoaService.Get());
         }
 
     }

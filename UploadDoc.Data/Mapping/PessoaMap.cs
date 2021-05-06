@@ -11,7 +11,7 @@ namespace UploadDoc.Data.Mapping
     {
         public void Configure(EntityTypeBuilder<Pessoa> builder)
         {
-            builder.Property(e => e.PessoaId).HasColumnName("PessoaID");
+            builder.Property(e => e.Id).HasColumnName("PessoaID");
 
             builder.Property(e => e.Nome)
                     .IsRequired()
