@@ -39,6 +39,7 @@
     <ProjectReference Include="..\IoC\IoC.csproj" />
     <ProjectReference Include="..\UploadDoc.Application\UploadDoc.Application.csproj" />
     <ProjectReference Include="..\UploadDoc.Data\UploadDoc.Data.csproj" />
+    <ProjectReference Include="..\UploadDoc.Swagger\UploadDoc.Swagger.csproj" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

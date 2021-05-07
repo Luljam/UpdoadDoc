@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using UploadDoc.Application.AutoMapper;
 using UploadDoc.Data.Context;
+using UploadDoc.Swagger;
 
 namespace UploadDoc
 {
@@ -34,6 +35,9 @@ namespace UploadDoc
             // Carrega as configuração do Automapper. Verificar a Classe de serviço em Application.Services e applicar o AutoMap
             services.AddAutoMapper(typeof(AutoMapperSetup));
 
+            // Carrega as configurações do Swagger criado em CrossCutting
+            services.AddSwaggerConfiguration();
+
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
@@ -54,6 +58,9 @@ namespace UploadDoc
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            // Carrega configurações da rota do Swagger
+            app.UseSwaggerConfiguration();
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
