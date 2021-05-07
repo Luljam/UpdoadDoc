@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using UploadDoc.Application.AutoMapper;
 using UploadDoc.Data.Context;
 
 namespace UploadDoc
@@ -29,6 +30,9 @@ namespace UploadDoc
 
             // Carrega configuração de Injeção de Dependência
             NativeInjector.RegisterServices(services);
+
+            // Carrega as configuração do Automapper. Verificar a Classe de serviço em Application.Services e applicar o AutoMap
+            services.AddAutoMapper(typeof(AutoMapperSetup));
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>

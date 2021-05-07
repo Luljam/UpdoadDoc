@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using UploadDoc.Application.Interfaces;
@@ -11,9 +12,11 @@ namespace UploadDoc.Application.Services
     public class PessoaService : IPessoaService
     {
         private readonly IPessoaRepository pessoaRepository;
-        public PessoaService(IPessoaRepository pessoaRepository)
+        private readonly IMapper mapper;
+        public PessoaService(IPessoaRepository pessoaRepository, IMapper mapper)
         {
             this.pessoaRepository = pessoaRepository;
+            this.mapper = mapper;
         }
         public List<PessoaViewModel> Get()
         {
@@ -21,26 +24,33 @@ namespace UploadDoc.Application.Services
             List<PessoaViewModel> _pessoaViewModels = new List<PessoaViewModel>();
             IEnumerable<Pessoa> _pessoa = pessoaRepository.GetAll();
 
-            foreach (var item in _pessoa)
-            {
-                _pessoaViewModels.Add(new PessoaViewModel {
-                    Id = item.Id,
-                    Prontuario = item.Prontuario,
-                    Nome = item.Nome
-                });
-            }
+            _pessoaViewModels = mapper.Map<List<PessoaViewModel>>(_pessoa);
+
+
+            // Substituido por AutoMapper
+            //foreach (var item in _pessoa)
+            //{
+            //    _pessoaViewModels.Add(new PessoaViewModel {
+            //        Id = item.Id,
+            //        Prontuario = item.Prontuario,
+            //        Nome = item.Nome
+            //    });
+            //}
 
             return _pessoaViewModels;
         }
 
         public bool Post(PessoaViewModel pessoaViewModel)
         {
-            Pessoa _pessoa = new Pessoa
-            {
-                Id = pessoaViewModel.Id,
-                Prontuario = pessoaViewModel.Prontuario,
-                Nome = pessoaViewModel.Nome,
-            };
+            // Substituido por AutoMapper
+            //Pessoa _pessoa = new Pessoa
+            //{
+            //    Id = pessoaViewModel.Id,
+            //    Prontuario = pessoaViewModel.Prontuario,
+            //    Nome = pessoaViewModel.Nome,
+            //};
+
+            Pessoa _pessoa = mapper.Map<Pessoa>(pessoaViewModel);
 
             this.pessoaRepository.Create(_pessoa);
 
