@@ -11,5 +11,6 @@ namespace UploadDoc.Application.Interfaces
         // Então cria-se  ViewModels para retornar o que o frontend precisa
         List<PessoaViewModel> Get();
         public bool Post(PessoaViewModel pessoaViewModel);
+        PessoaViewModel GetById(int id);
     }
 }

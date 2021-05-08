@@ -18,6 +18,13 @@ namespace UploadDoc.Application.Services
             this.pessoaRepository = pessoaRepository;
             this.mapper = mapper;
         }
+
+        public PessoaViewModel GetById(int id)
+        {
+            var _pessoa = pessoaRepository.GetById(id);
+            return (mapper.Map<PessoaViewModel>(_pessoa));
+        }
+
         public List<PessoaViewModel> Get()
         {
             // Crio uma lista para converter Pessoa em PessoaViewModel para passar para o controller

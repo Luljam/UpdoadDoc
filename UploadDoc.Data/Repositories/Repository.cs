@@ -29,6 +29,19 @@ namespace UploadDoc.Data.Repositories
             _context = context;
         }
 
+        public TEntity Find(Expression<Func<TEntity, bool>> where)
+        {
+            try
+            {
+                return DbSet.AsNoTracking().FirstOrDefault(where);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public IQueryable<TEntity> Query(Expression<Func<TEntity, bool>> where)
         {
             try

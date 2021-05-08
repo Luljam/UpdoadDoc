@@ -17,5 +17,10 @@ namespace UploadDoc.Data.Repositories
         {
             return Query(x => x.IsActive);
         }
+
+        public Pessoa GetById(int pessoaId)
+        {
+            return Find(x => x.Id == pessoaId);
+        }
     }
 }

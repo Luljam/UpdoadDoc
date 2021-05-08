@@ -22,7 +22,7 @@ namespace UploadDoc.Controllers
 
         [HttpGet]
         public IActionResult Get()
-        { 
+        {
             return Ok(this.pessoaService.Get());
         }
 
@@ -31,6 +31,13 @@ namespace UploadDoc.Controllers
         {
             return Ok(this.pessoaService.Post(pessoaViewModel));
         }
+
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
+        {
+            return Ok(this.pessoaService.GetById(id));
+        }
+
 
     }
 }
