@@ -15,6 +15,7 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.14">
       <PrivateAssets>all</PrivateAssets>
@@ -38,6 +39,7 @@
   <ItemGroup>
     <ProjectReference Include="..\IoC\IoC.csproj" />
     <ProjectReference Include="..\UploadDoc.Application\UploadDoc.Application.csproj" />
+    <ProjectReference Include="..\UploadDoc.Auth\UploadDoc.Auth.csproj" />
     <ProjectReference Include="..\UploadDoc.Data\UploadDoc.Data.csproj" />
     <ProjectReference Include="..\UploadDoc.Swagger\UploadDoc.Swagger.csproj" />
   </ItemGroup>
