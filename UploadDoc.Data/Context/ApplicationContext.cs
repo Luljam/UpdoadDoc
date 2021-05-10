@@ -25,6 +25,13 @@ namespace UploadDoc.Data.Context
             // Toda Vez que rodar uma migration insere dados padroes no banco conforme configurado no SeedData
             modelBuilder.SeedData();
 
+            // Coloca o campo prontuario como unico
+            modelBuilder.Entity<Pessoa>()
+                .HasIndex(p => p.Prontuario)
+                .IsUnique();
+
+
+
             base.OnModelCreating(modelBuilder);
         }
 

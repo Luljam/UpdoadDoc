@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UploadDoc.Data.Context;
 
 namespace UploadDoc.Data.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20210510152620_ProntuarioUnico")]
+    partial class ProntuarioUnico
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,7 +32,7 @@ namespace UploadDoc.Data.Migrations
                     b.Property<DateTime>("DateCreaded")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 5, 10, 12, 46, 40, 665, DateTimeKind.Local).AddTicks(9329));
+                        .HasDefaultValue(new DateTime(2021, 5, 10, 12, 26, 19, 966, DateTimeKind.Local).AddTicks(9485));
 
                     b.Property<DateTime?>("DateUpdated")
                         .HasColumnType("datetime2");
@@ -49,9 +51,6 @@ namespace UploadDoc.Data.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("Prontuario")
-                        .IsUnique();
 
                     b.ToTable("Pessoas");
 

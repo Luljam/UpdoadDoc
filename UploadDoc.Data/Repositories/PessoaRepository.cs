@@ -18,9 +18,13 @@ namespace UploadDoc.Data.Repositories
             return Query(x => x.IsActive);
         }
 
-        public Pessoa GetById(int pessoaId)
+        public Pessoa Find(int pessoaId)
         {
             return Find(x => x.Id == pessoaId);
+        }
+        public Pessoa FindByProntuario(int prontuario)
+        {
+            return Find(x => x.Prontuario == prontuario);
         }
     }
 }

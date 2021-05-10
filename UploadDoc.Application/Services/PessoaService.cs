@@ -21,7 +21,12 @@ namespace UploadDoc.Application.Services
 
         public PessoaViewModel GetById(int id)
         {
-            var _pessoa = pessoaRepository.GetById(id);
+            var _pessoa = pessoaRepository.Find(x => x.Id == id && x.IsActive);
+            if (_pessoa == null)
+            {
+                throw new Exception("Not found");
+            }
+
             return (mapper.Map<PessoaViewModel>(_pessoa));
         }
 
@@ -58,9 +63,27 @@ namespace UploadDoc.Application.Services
             //};
 
             Pessoa _pessoa = mapper.Map<Pessoa>(pessoaViewModel);
+            Pessoa _p = this.pessoaRepository.FindByProntuario(pessoaViewModel.Prontuario);
+            if (_p == null)
+            {
+                this.pessoaRepository.Create(_pessoa);
+                return true;
+            }
 
-            this.pessoaRepository.Create(_pessoa);
+            return false;
+        }
+        
+        public bool Put(PessoaViewModel pessoaViewModel)
+        {
+            // Verificar se existe o usuário
+            Pessoa _pessoa = this.pessoaRepository.Find(pessoaViewModel.Id);
+            if (_pessoa == null)
+            {
+                throw new Exception("Pessoa não encontrada!");
+            }
 
+            _pessoa = mapper.Map<Pessoa>(pessoaViewModel);
+            this.pessoaRepository.Update(_pessoa);
             return true;
         }
     }

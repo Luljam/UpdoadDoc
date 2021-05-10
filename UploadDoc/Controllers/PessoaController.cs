@@ -29,7 +29,21 @@ namespace UploadDoc.Controllers
         [HttpPost]
         public IActionResult Post(PessoaViewModel pessoaViewModel)
         {
-            return Ok(this.pessoaService.Post(pessoaViewModel));
+            try
+            {
+                var pessoa = this.pessoaService.Post(pessoaViewModel);
+                if (pessoa)
+                {
+                    return Ok();
+                }
+                // Quando já existe prontuário
+                return UnprocessableEntity();
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+            
         }
 
         [HttpGet("{id}")]
@@ -38,6 +52,10 @@ namespace UploadDoc.Controllers
             return Ok(this.pessoaService.GetById(id));
         }
 
-
+        [HttpPut]
+        public IActionResult Put(PessoaViewModel pessoaViewModel)
+        {
+            return Ok(this.pessoaService.Put(pessoaViewModel));
+        }
     }
 }
