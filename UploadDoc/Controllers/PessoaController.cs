@@ -43,7 +43,7 @@ namespace UploadDoc.Controllers
             {
                 return BadRequest();
             }
-            
+
         }
 
         [HttpGet("{id}")]
@@ -56,6 +56,12 @@ namespace UploadDoc.Controllers
         public IActionResult Put(PessoaViewModel pessoaViewModel)
         {
             return Ok(this.pessoaService.Put(pessoaViewModel));
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            return Ok(this.pessoaService.Delete(id));
         }
     }
 }

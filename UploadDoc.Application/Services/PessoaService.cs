@@ -86,5 +86,17 @@ namespace UploadDoc.Application.Services
             this.pessoaRepository.Update(_pessoa);
             return true;
         }
+
+        public bool Delete(int id)
+        {
+            var _pessoa = pessoaRepository.Find(x => x.Id == id && x.IsActive);
+            if (_pessoa == null)
+            {
+                throw new Exception("Pessoa não encontrada!");
+            }
+
+            
+            return this.pessoaRepository.Delete(_pessoa); 
+        }
     }
 }

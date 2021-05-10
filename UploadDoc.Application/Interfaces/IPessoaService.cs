@@ -13,5 +13,7 @@ namespace UploadDoc.Application.Interfaces
         public bool Post(PessoaViewModel pessoaViewModel);
         PessoaViewModel GetById(int id);
         bool Put(PessoaViewModel pessoaViewModel);
+
+        bool Delete(int id);
     }
 }
