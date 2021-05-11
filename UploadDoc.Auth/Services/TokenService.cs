@@ -30,10 +30,10 @@ namespace UploadDoc.Auth
             return tokenHandler.WriteToken(token);
         }
 
-        //public static string GetValueFromClaim(IIdentity identity, string field)
-        //{
-        //    var claims = identity as ClaimsIdentity;
-        //    return claims.FindFirst(field).Value;
-        //}
+        public static string GetValueFromClaim(IIdentity identity, string field)
+        {
+            var claims = identity as ClaimsIdentity;
+            return claims.FindFirst(field).Value;
+        }
     }
 }

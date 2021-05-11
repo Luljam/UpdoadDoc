@@ -30,5 +30,15 @@ namespace UploadDoc.Application.Services
             }
             return new UserAuthenticateResponseViewModel(mapper.Map<UserViewModel>(_user), TokenService.GenerateToken(_user));
         }
+
+        public bool Delete(string userId)
+        {
+            User _user = this.userRepository.Find(u => u.Id.ToString() == userId && u.IsActive);
+            if (_user == null)
+            {
+                throw new Exception("User not found");
+            }
+            return this.userRepository.Delete(_user);
+        }
     }
 }
