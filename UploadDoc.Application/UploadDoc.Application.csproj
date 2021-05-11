@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\UploadDoc.Auth\UploadDoc.Auth.csproj" />
     <ProjectReference Include="..\UploadDoc.Domain\UploadDoc.Domain.csproj" />
   </ItemGroup>
 

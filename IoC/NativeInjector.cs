@@ -14,12 +14,14 @@ namespace IoC
             #region Services
 
             services.AddScoped<IPessoaService, PessoaService>();
+            services.AddScoped<IUserService, UserService>();
 
             #endregion
 
             #region Repositories
 
             services.AddScoped<IPessoaRepository, PessoaRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
 
             #endregion
         }

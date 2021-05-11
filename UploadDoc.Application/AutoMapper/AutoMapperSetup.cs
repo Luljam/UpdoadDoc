@@ -19,12 +19,14 @@ namespace UploadDoc.Application.AutoMapper
             #region ViewModelToDomain
 
             CreateMap<PessoaViewModel, Pessoa>();
+            CreateMap<UserViewModel, User>();
 
             #endregion
 
             #region DomainToViewModel
 
             CreateMap<Pessoa, PessoaViewModel>();
+            CreateMap<User, UserViewModel>();
             #endregion
         }
     }
