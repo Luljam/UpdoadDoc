@@ -23,6 +23,12 @@ namespace UploadDoc.Application.Services
 
         public UserAuthenticateResponseViewModel Authenticate(UserAuthenticateRequestViewModel user)
         {
+            if (string.IsNullOrEmpty(user.Email))
+            {
+                throw new Exception("Email/Password are required.");
+            }
+
+
             User _user = this.userRepository.Find(x => x.IsActive && x.Email.ToLower() == user.Email.ToLower());
             if (_user == null)
             {
