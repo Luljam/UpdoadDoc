@@ -114,7 +114,6 @@ namespace UploadDoc.Data.Repositories
                 {
                     (model as Entity).IsActive = false;
                     EntityEntry<TEntity> _entry = _context.Entry(model);
-
                     DbSet.Attach(model);
 
                     _entry.State = EntityState.Modified;

@@ -8,7 +8,7 @@ using UploadDoc.Data.Context;
 
 namespace UploadDoc.Data.Migrations
 {
-    [DbContext(typeof(ApplicationContext))]
+    [DbContext(typeof(DbContextOptionsBuilder))]
     partial class ApplicationContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

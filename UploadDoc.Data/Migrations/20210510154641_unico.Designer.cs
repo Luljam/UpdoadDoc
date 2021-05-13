@@ -9,7 +9,7 @@ using UploadDoc.Data.Context;
 
 namespace UploadDoc.Data.Migrations
 {
-    [DbContext(typeof(ApplicationContext))]
+    [DbContext(typeof(DbContextOptionsBuilder))]
     [Migration("20210510154641_unico")]
     partial class unico
     {

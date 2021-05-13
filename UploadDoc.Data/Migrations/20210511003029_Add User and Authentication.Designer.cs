@@ -9,7 +9,7 @@ using UploadDoc.Data.Context;
 
 namespace UploadDoc.Data.Migrations
 {
-    [DbContext(typeof(ApplicationContext))]
+    [DbContext(typeof(DbContextOptionsBuilder))]
     [Migration("20210511003029_Add User and Authentication")]
     partial class AddUserandAuthentication
     {

@@ -8,7 +8,7 @@ using UploadDoc.Data.Context;
 
 namespace UploadDoc.Data.Migrations
 {
-    [DbContext(typeof(ApplicationContext))]
+    [DbContext(typeof(DbContextOptionsBuilder))]
     [Migration("20210506163350_Inserting Default Person")]
     partial class InsertingDefaultPerson
     {
